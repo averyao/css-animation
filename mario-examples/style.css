@@ -1,0 +1,177 @@
+/*// BASE STYLES //*/
+
+html, body{
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.grass, .sky, .road{
+  position: relative;
+}
+
+.sky{
+  height: 40%;
+  background: skyblue;
+    
+/*animation*/
+    animation: day 4s 4s infinite ease both;
+}
+
+.grass{
+  height: 30%;
+  background: seagreen;
+}
+
+.road{
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+/*// ELEMENTS TO ANIMATE //*/
+.mario {
+    position: absolute;
+    top: -40px;
+    left: 0;
+   /* animation-name: drive;
+    animation-duration: 5s;
+    /*animation-fill-mode: forwards; /*apply last state to animation when finish*/
+    
+    /*animation-fill-mode: backwards; /*start from given starting postion, back to ori strat state after animation finish*/
+    
+   /* animation-fill-mode: both; 
+    /*strat from givin starting position, and stay in end after animation*/
+    
+    /*animation-delay: 0.2s;
+    
+    animation-iteration-count: infinite;
+    animation-timing-function: ease; 
+    */
+    
+    animation: jump 0.3s 1.2s ease 2,
+               drive 5s 0.2s both infinite ease;
+}
+
+.luigi {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    
+    animation-name: drive;
+    animation-duration: 7s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+}
+
+
+
+.cloud {
+   position: absolute;
+    
+}
+
+.cloud:nth-child(1) {
+    width: 200px;
+    top: 80px;
+    left: 480px;
+    opacity: 0.6;
+     animation: wind 40s linear infinite reverse 1s;
+}
+
+.cloud:nth-child(2) {
+    width: 400px;
+    top: 0;
+    left: 200px;
+    animation: wind 20s linear infinite reverse;
+}
+
+/*sun animation*/
+.sun {
+    position: absolute;
+    top: 40px;
+    right: 100px;
+    width: 150px;
+    
+    animation: cloudy 4s 4s infinite ease both;
+}
+
+
+/*// KEYFRAMES //*/
+@keyframes drive {
+    from {
+        transform: translateX(-200px);
+    }
+    to {
+        transform: translateX(2000px);
+    }
+}
+
+@keyframes wind {
+    from {
+        left: -400px;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes jump {
+    0% {
+        top: -40px;
+    }
+    
+    33.3% {
+        top: -100px;
+    }
+    
+    100% {
+        top: -40px;
+    }
+}
+
+/*sky changes color*/
+@keyframes day {
+    0% {
+        background-color: skyblue;
+    }
+    50% {
+        background-color: darkblue;
+    }
+     100% {
+        background-color: skyblue;
+    }
+}
+
+@keyframes cloudy {
+    0% {
+        top: 2000px;
+        opacity: 0;
+    }
+    50% {
+        top: 40px;
+        opacity: 1;
+    }
+    100% {
+        top: 2000px;
+        opacity: 0;
+    }
+}
+
+
+
+
